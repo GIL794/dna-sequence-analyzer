@@ -1,2 +1,50 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Source code
+*.py text eol=lf diff=python
+*.sh text eol=lf
+
+# Documentation
+*.md text eol=lf
+*.txt text eol=lf
+*.rst text eol=lf
+
+# Configuration
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.ini text eol=lf
+*.cfg text eol=lf
+
+# Data files
+*.fasta text eol=lf
+*.fa text eol=lf
+*.fna text eol=lf
+*.fastq text eol=lf
+*.csv text eol=lf
+
+# Git
+.gitattributes text eol=lf
+.gitignore text eol=lf
+.editorconfig text eol=lf
+
+# Archives
+*.zip binary
+*.tar binary
+*.gz binary
+*.7z binary
+
+# Images
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text
+
+# Compiled files
+*.pyc binary
+*.pyo binary
+*.pyd binary

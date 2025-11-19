@@ -1,5 +1,18 @@
-DNA Sequence Analyzer FAQ
-General
+# DNA Sequence Analyzer - Frequently Asked Questions (FAQ)
+
+## Table of Contents
+
+1. [General Questions](#general-questions)
+2. [Functions and Outputs](#functions-and-outputs)
+3. [Validation and Errors](#validation-and-errors)
+4. [Performance and Limits](#performance-and-limits)
+5. [Reproducibility and Testing](#reproducibility-and-testing)
+6. [Data and Exports](#data-and-exports)
+7. [Common Pitfalls](#common-pitfalls)
+
+---
+
+## General Questions
 Q: What file formats are supported?
 A: FASTA (.fasta, .fa, .fna, .txt). Each sequence must begin with “>id description” and be followed by one or more lines of bases.
 
@@ -44,32 +57,51 @@ Q: Molecular weight seems off for protein sequences.
 A: Ensure you pass seq_type='protein'. For ambiguous residues (“X”), the fallback uses an average residue weight. For dsDNA or circular DNA, use function parameters.
 
 Performance and Limits
-Q: The app freezes on very large sequences.
+**Q: The app freezes on very large sequences.**
+
 A: Use a larger GC window (e.g., 100–200), reduce motif search operations, and prefer the chunked processing API for batch analysis. Avoid loading extremely large sequences in the browser.
 
-Q: How can I speed up GC calculations and translation?
+**Q: How can I speed up GC calculations and translation?**
+
 A: Install Biopython and scikit-bio. The project already integrates Biopython for performance; keep versions in requirements.txt.
 
-Reproducibility and Testing
-Q: How do I run tests?
-A: From the repository root:
+---
 
-bash
+## Reproducibility and Testing
+**Q: How do I run tests?**
+
+A: From the repository root:
+```bash
 pytest tests/ -v
 pytest tests/ --cov=src --cov-report=html
-Q: How do I add my own tests?
-A: Create new test files under tests/, import functions from src/, and use pytest patterns. Add sample inputs to tests/test_data/.
+```
 
-Data and Exports
-Q: How do I export analysis results?
-A: Use the Export tab in the app (CSV, FASTA). Programmatically, use export_results_multiformat(results, id, format) for CSV, JSON, GenBank, TSV.
+**Q: How do I add my own tests?**
 
-Q: Can I search for IUPAC-ambiguous motifs?
-A: The basic motif search is exact-match. Extend find_motif to interpret IUPAC codes, or convert ambiguous codes into regex before searching.
+A: Create new test files under `tests/`, import functions from `src/`, and use pytest patterns. Add sample inputs to `tests/test_data/`.
 
-Common Pitfalls
+---
+
+## Data and Exports
+**Q: How do I export analysis results?**
+
+A: Use the Export tab in the app (CSV, FASTA). Programmatically, use `export_results_multiformat(results, id, format)` for CSV, JSON, GenBank, TSV.
+
+**Q: Can I search for IUPAC-ambiguous motifs?**
+
+A: The basic motif search is exact-match. Extend `find_motif` to interpret IUPAC codes, or convert ambiguous codes into regex before searching.
+
+---
+
+## Common Pitfalls
 Q: I get “NameError: get_sequence_statistics is not defined.”
 A: Ensure from src.utils import get_sequence_statistics is in app.py and the function is defined in src/utils.py (see tutorial for implementation).
 
 Q: “calculate_molecular_weight” missing or failing.
 A: Restore it in src/utils.py (wrapper over Biopython with manual fallback) and import it where needed. See tutorial and prior responses for the full implementation.
+---
+
+**For more help, see:**
+- [User Guide](user_guide.md)
+- [Tutorial](tutorial.md)
+- [GitHub Issues](https://github.com/GIL794/dna-sequence-analyzer/issues)

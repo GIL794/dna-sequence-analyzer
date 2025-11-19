@@ -1,0 +1,27 @@
+# Include documentation
+include README.md
+include LICENSE
+include CHANGELOG.md
+include CONTRIBUTING.md
+include CODE_OF_CONDUCT.md
+include SECURITY.md
+include requirements.txt
+include get_data_links.md
+
+# Include documentation directory
+recursive-include docs *.md
+
+# Include data directory
+recursive-include data *.fasta *.txt *.fa *.fna
+
+# Include tests
+recursive-include tests *.py *.fasta *.json
+
+# Include GitHub templates
+recursive-include .github *.md
+
+# Exclude compiled Python files
+global-exclude *.py[cod]
+global-exclude __pycache__
+global-exclude *.so
+global-exclude .DS_Store

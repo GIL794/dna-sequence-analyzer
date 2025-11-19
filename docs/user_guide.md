@@ -16,14 +16,18 @@
 ### First Time Setup
 
 1. **Install the application**
-following the README.md instructions
+   Follow the [README.md](../README.md) installation instructions
 
 2. **Activate your virtual environment**:
-source venv/bin/activate # macOS/Linux
-venv\Scripts\activate # Windows
+   ```bash
+   source venv/bin/activate # macOS/Linux
+   venv\Scripts\activate # Windows
+   ```
 
 3. **Launch the application**:
-streamlit run app.py
+   ```bash
+   streamlit run app.py
+   ```
 
 4. The application will open in your web browser at `http://localhost:8501`
 
@@ -44,8 +48,10 @@ Best for quick analysis of short sequences or testing.
 4. Click outside the text area to confirm input
 
 **Example Input:**
+```
 ATGGCTAGCTAGCTAGCTAGCTAGC
 TAGCTAGCTAGCTAGCTAGCTAGC
+```
 
 
 ### Method 2: Upload FASTA File
@@ -61,11 +67,13 @@ Best for analyzing multiple sequences or working with standard bioinformatics da
    - Displays number of sequences loaded
 
 **FASTA Format Example:**
-sequence1 Description of sequence 1
+```fasta
+>sequence1 Description of sequence 1
 ATGGCTAGCTAGCTAGC
 TAGCTAGCTAGCTAGC
-sequence2 Description of sequence 2
+>sequence2 Description of sequence 2
 GCTAGCTAGCTAGCTAG
+```
 
 ---
 
