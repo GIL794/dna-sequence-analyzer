@@ -1,10 +1,42 @@
 # 🧬 DNA Sequence Analyzer
 
+<div align="center">
+
 ![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Status](https://img.shields.io/badge/status-active-success.svg)
+[![GitHub Issues](https://img.shields.io/github/issues/GIL794/dna-sequence-analyzer)](https://github.com/GIL794/dna-sequence-analyzer/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/GIL794/dna-sequence-analyzer)](https://github.com/GIL794/dna-sequence-analyzer/pulls)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
+[![Code of Conduct](https://img.shields.io/badge/code%20of%20conduct-contributor%20covenant-purple.svg)](CODE_OF_CONDUCT.md)
 
-A comprehensive, production-ready web application for DNA sequence analysis. Built with Python, Streamlit, and industry-standard bioinformatics libraries (Biopython, scikit-bio).
+**A comprehensive, production-ready web application for DNA sequence analysis**
+
+Built with Python, Streamlit, and industry-standard bioinformatics libraries (Biopython, scikit-bio)
+
+[Features](#-features) •
+[Quick Start](#-quick-start) •
+[Documentation](#-documentation) •
+[Contributing](#-contributing) •
+[Support](#-support)
+
+</div>
+
+---
+
+## 📋 Project Description
+
+DNA Sequence Analyzer is a powerful, user-friendly bioinformatics tool designed for researchers, students, and educators. Whether you're identifying genes, analyzing GC content, or planning cloning experiments, this application provides comprehensive sequence analysis capabilities through an intuitive web interface.
+
+### 🎯 Key Highlights
+
+- **🚀 Zero Configuration**: Run locally with a single command
+- **🌐 Browser-Based**: No installation required beyond Python dependencies
+- **📊 Visual Analytics**: Interactive plots and comprehensive statistics
+- **🔬 Research-Grade**: Leverages battle-tested libraries (Biopython, scikit-bio)
+- **📚 Well-Documented**: Extensive guides, tutorials, and API documentation
+- **🧪 Thoroughly Tested**: Comprehensive test suite with >80% coverage
+- **🤝 Open Source**: MIT licensed, community-driven development
 
 ![DNA Analyzer Banner](docs/images/banner.png)
 
@@ -87,6 +119,23 @@ streamlit run app.py
 
 
 The application will automatically open in your browser at `http://localhost:8501`
+
+### Verify Installation
+
+Test that everything is working correctly:
+
+```bash
+# Check Python version
+python --version  # Should be 3.8 or higher
+
+# Verify dependencies
+python -c "import streamlit, Bio, skbio; print('✓ All dependencies installed')"
+
+# Run tests
+pytest tests/ -v
+```
+
+If you encounter issues, see the [Troubleshooting](#-troubleshooting) section below.
 
 ## 📖 Usage Guide
 
@@ -254,6 +303,30 @@ mypy src/
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
+## 🤝 Contributing
+
+We welcome contributions from the community! Whether you're fixing bugs, adding features, or improving documentation, your help is appreciated.
+
+### Quick Start for Contributors
+
+1. **Fork and clone** the repository
+2. **Create a branch** for your feature (`git checkout -b feature/amazing-feature`)
+3. **Make your changes** and write tests
+4. **Run tests** to ensure everything works (`pytest`)
+5. **Submit a pull request** with a clear description
+
+For detailed instructions, please read:
+- [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) - Community standards
+- [SECURITY.md](SECURITY.md) - Security policy and vulnerability reporting
+
+### 🏷️ Good First Issues
+
+New contributors should look for issues tagged with:
+- `good first issue` - Perfect for newcomers
+- `help wanted` - Community input needed
+- `documentation` - Improve docs
+
 ## 📚 Documentation
 
 - **[User Guide](docs/user_guide.md)** - Complete usage instructions
@@ -276,7 +349,7 @@ If you use this tool in your research, please cite:
 author = {Gabriele Iacopo Langellotto},
 title = {DNA Sequence Analyzer: A Web-Based Bioinformatics Tool},
 year = {2025},
-url = {https://github.com/GrowthInnovationLegacy/dna-sequence-analyzer},
+url = {https://github.com/GIL794/dna-sequence-analyzer},
 version = {1.0.0}
 }
 
@@ -300,9 +373,9 @@ copies of the Software...
 
 ## 👥 Authors
 
-- **Gabreiele Iacopo Langellotto** - *Initial work* - [@GIL794](https://github.com/GrowthInnovationLegacy)
+- **Gabriele Iacopo Langellotto** - *Initial work* - [@GIL794](https://github.com/GIL794)
 
-See also the list of [contributors](https://github.com/GrowthInnovationLegacy/dna-sequence-analyzer/contributors).
+See also the list of [contributors](https://github.com/GIL794/dna-sequence-analyzer/contributors).
 
 ## 🙏 Acknowledgments
 
@@ -312,11 +385,49 @@ See also the list of [contributors](https://github.com/GrowthInnovationLegacy/dn
 - **NCBI** - Reference databases and tools
 - **Open Source Community** - Inspiration and support
 
+## 🔧 Troubleshooting
+
+### Common Issues
+
+**Installation Problems**
+
+```bash
+# Issue: pip install fails
+# Solution: Upgrade pip
+pip install --upgrade pip setuptools wheel
+
+# Issue: ModuleNotFoundError
+# Solution: Ensure virtual environment is activated
+source venv/bin/activate  # macOS/Linux
+venv\Scripts\activate     # Windows
+```
+
+**Runtime Errors**
+
+- **"Address already in use"**: Another app is using port 8501
+  ```bash
+  streamlit run app.py --server.port 8502
+  ```
+
+- **"No module named 'src'"**: Run from project root directory
+  ```bash
+  cd dna-sequence-analyzer
+  streamlit run app.py
+  ```
+
+**Browser Issues**
+
+- **Blank page**: Clear browser cache or try incognito mode
+- **Slow performance**: Reduce sequence size or GC window size
+- **Upload fails**: Check file format (must be FASTA) and size (<200 MB)
+
+For more help, check the [User Guide](docs/user_guide.md) or [FAQ](docs/faq.md).
+
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/GrowthInnovationLegacy/dna-sequence-analyzer/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/GrowthInnovationLegacy/dna-sequence-analyzer/discussions)
-- **Email**: 
+- **Issues**: [GitHub Issues](https://github.com/GIL794/dna-sequence-analyzer/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/GIL794/dna-sequence-analyzer/discussions)
+- **Email**: support@dna-sequence-analyzer.dev
 
 ## 🗺️ Roadmap
 
@@ -334,7 +445,7 @@ See also the list of [contributors](https://github.com/GrowthInnovationLegacy/dn
 
 ## ⭐ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=GrowthInnovationLegacy/dna-sequence-analyzer&type=Date)](https://star-history.com/#GrowthInnovationLegacy/dna-sequence-analyzer&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=GIL794/dna-sequence-analyzer&type=Date)](https://star-history.com/#GIL794/dna-sequence-analyzer&Date)
 
 ---
 
