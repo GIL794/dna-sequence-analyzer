@@ -4,8 +4,9 @@
 
 ### calculate_gc_content()
 
+```python
 calculate_gc_content(sequence: str) -> float
-
+```
 
 Calculate the GC content percentage of a DNA sequence.
 
@@ -19,17 +20,20 @@ Calculate the GC content percentage of a DNA sequence.
 - `ValueError`: If sequence is empty or contains invalid characters
 
 **Example:**
+```python
 from src.sequence_analysis import calculate_gc_content
 calculate_gc_content("ATGC")
-50.0
+# 50.0
+```
 
 
 ---
 
 ### get_reverse_complement()
 
+```python
 get_reverse_complement(sequence: str) -> str
-
+```
 
 Generate the reverse complement of a DNA sequence.
 
@@ -40,16 +44,19 @@ Generate the reverse complement of a DNA sequence.
 - `str`: Reverse complement (5' to 3' of opposite strand)
 
 **Example:**
+```python
 get_reverse_complement("ATGC")
-'GCAT'
+# 'GCAT'
+```
 
 
 ---
 
 ### find_orfs()
 
+```python
 find_orfs(sequence: str, min_length: int = 75) -> list
-
+```
 
 Find all open reading frames in a DNA sequence.
 
@@ -74,8 +81,9 @@ Find all open reading frames in a DNA sequence.
 
 ### parse_fasta()
 
+```python
 parse_fasta(fasta_string: str) -> List[SequenceRecord]
-
+```
 
 Parse FASTA formatted sequence data.
 
@@ -110,8 +118,9 @@ Container for sequence with metadata.
 
 ### calculate_molecular_weight()
 
+```python
 calculate_molecular_weight(sequence: str, seq_type: str = 'dna') -> float
-
+```
 
 Calculate molecular weight of sequence.
 
@@ -128,12 +137,13 @@ Calculate molecular weight of sequence.
 
 ### plot_gc_content_window()
 
+```python
 plot_gc_content_window(
-window_results: List[Dict],
-sequence_name: str = "Sequence",
-show_average: bool = True
+    window_results: List[Dict],
+    sequence_name: str = "Sequence",
+    show_average: bool = True
 ) -> go.Figure
-
+```
 
 Create interactive plot of GC content.
 

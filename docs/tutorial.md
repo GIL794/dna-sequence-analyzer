@@ -14,18 +14,19 @@ This tutorial will guide you through using the DNA Sequence Analyzer from basic 
 
 ### Launch the Application
 
-Open a new terminal
-Ctrl+shift+c
+```bash
+# Open a new terminal (Ctrl+Shift+C)
 
-Create virtual environment
+# Create virtual environment
 python -m venv venv
 
-Activate your virtual environment
+# Activate your virtual environment
 source venv/bin/activate # macOS/Linux (also GitHub CodeSpace)
 venv\Scripts\activate # Windows
 
-Start the app
+# Start the app
 streamlit run app.py
+```
 
 The application opens at `http://localhost:8501`
 
@@ -57,7 +58,7 @@ Goal: Calculate GC content of a short DNA fragment
    - Statistics table shows individual base counts
    - GC content plot shows distribution
 
-Expected Output:
+**Expected Output:**
 - Length: 20 bp
 - GC Content: ~47.5%
 - A: 1, T: 10, G: 9, C: 0
@@ -74,7 +75,7 @@ Goal: Generate reverse complement for primer design
    - Complement (5'→3'): `TACCGGTAACATTACCCGGCGACT`
    - Reverse Complement: `TCAGCGGCCCATTACAATGGCCAT`
 
-Use Case: The reverse complement is your primer binding sequence.
+**Use Case:** The reverse complement is your primer binding sequence.
 
 ---
 
@@ -99,19 +100,19 @@ Goal: Analyze human insulin gene
    - Adjust window size: 30 bp
    - Minimum ORF length: 100 bp
 
-4. Interpret results:
+4. **Interpret results:**
 
-   Summary Statistics:
+   **Summary Statistics:**
    - Length: ~330 bp
    - GC Content: ~44%
    - Molecular Weight: ~102 kDa
 
-   ORF Detection:
+   **ORF Detection:**
    - Should find 1 complete ORF in +1 frame
    - Starts at position 0 (ATG)
    - Protein sequence: "MALWMR..." (signal peptide + insulin)
 
-   GC Content Plot:
+   **GC Content Plot:**
    - Observe relatively uniform distribution
    - Slight dip in middle (AT-rich region)
 
@@ -131,23 +132,22 @@ Using: `data/sample_sequences/ecoli_sample.fasta`
    - Minimum ORF length: 150 bp (bacterial genes are typically 300+ bp)
    - GC window: 50 bp (larger for genome analysis)
 
-3. Key analyses:
+3. **Key analyses:**
 
-A. ORF Detection Results:
-- Expected: 2-3 ORFs
-- Frame distribution: Mostly +1, +2 (coding strand)
-- Longest ORF: ~300-400 bp
+   **A. ORF Detection Results:**
+   - Expected: 2-3 ORFs
+   - Frame distribution: Mostly +1, +2 (coding strand)
+   - Longest ORF: ~300-400 bp
 
+   **B. Restriction Enzyme Sites:**
+   - Common sites found: EcoRI, BamHI
+   - Use for cloning strategy planning
+   - Note positions for primer design
 
-B. Restriction Enzyme Sites:
-- Common sites found: EcoRI, BamHI
-- Use for cloning strategy planning
-- Note positions for primer design
-
-C. GC Content Visualization:
-- E. coli average: ~50-51% GC
-- Look for peaks (coding regions) and valleys (non-coding)
-- Gene-rich regions show higher GC content
+   **C. GC Content Visualization:**
+   - E. coli average: ~50-51% GC
+   - Look for peaks (coding regions) and valleys (non-coding)
+   - Gene-rich regions show higher GC content
 
 4. Export results:
 - Tab 3: "💾 Export Data"
@@ -181,21 +181,17 @@ Alternative motifs to search:
 
 ### Workflow A: Gene Characterization Pipeline
 
-Scenario: You've cloned a new gene and need to characterize it
+**Scenario:** You've cloned a new gene and need to characterize it
 
-Input sequence (from Sanger sequencing)
+**Steps:**
 
-Run Summary Statistics → Record GC%, length
-
-Check Complementary Strand → Verify orientation
-
-Find ORFs → Identify coding region
-
-Translate → Get protein sequence
-
-Find Restriction Sites → Plan subcloning
-
-Export all results → CSV for lab notebook
+1. Input sequence (from Sanger sequencing)
+2. Run Summary Statistics → Record GC%, length
+3. Check Complementary Strand → Verify orientation
+4. Find ORFs → Identify coding region
+5. Translate → Get protein sequence
+6. Find Restriction Sites → Plan subcloning
+7. Export all results → CSV for lab notebook
 
 
 
@@ -203,19 +199,16 @@ Export all results → CSV for lab notebook
 
 ### Workflow B: Primer Design Support
 
-Scenario: Design primers for PCR amplification
+**Scenario:** Design primers for PCR amplification
 
-Input target gene sequence
+**Steps:**
 
-Calculate GC Content → Aim for 40-60% in primer region
-
-Get Reverse Complement → For reverse primer
-
-Calculate Melting Temp (from statistics) → Match Tm for both primers
-
-Check for secondary structure (manual review)
-
-Export sequence → Send to synthesis company
+1. Input target gene sequence
+2. Calculate GC Content → Aim for 40-60% in primer region
+3. Get Reverse Complement → For reverse primer
+4. Calculate Melting Temp (from statistics) → Match Tm for both primers
+5. Check for secondary structure (manual review)
+6. Export sequence → Send to synthesis company
 
 
 
@@ -229,23 +222,18 @@ Primer Design Tips:
 
 ### Workflow C: Sequence Quality Control
 
-Scenario: Verify Sanger sequencing results
+**Scenario:** Verify Sanger sequencing results
 
-Upload your sequence
+**Steps:**
 
-Run Summary Statistics
-
-Check for:
-
-N bases (ambiguous calls) > 5% → Re-sequence
-
-Unexpected length → Check for insertions/deletions
-
-GC content far from expected → Contamination?
-
-Compare with reference using ORF detection
-
-Document any discrepancies
+1. Upload your sequence
+2. Run Summary Statistics
+3. Check for:
+   - N bases (ambiguous calls) > 5% → Re-sequence
+   - Unexpected length → Check for insertions/deletions
+   - GC content far from expected → Contamination?
+4. Compare with reference using ORF detection
+5. Document any discrepancies
 
 
 
@@ -314,18 +302,18 @@ Problem: Upload fails
 
 Analyze this sequence and answer questions:
 
-mystery_seq
+```fasta
+>mystery_seq
 ATGGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAG
+```
 
-
-
-Questions:
+**Questions:**
 1. What is the GC content?
 2. How many ORFs can you find (minimum 20 bp)?
 3. What is the translated protein sequence?
 4. Is this likely a real gene? Why or why not?
 
-Answers:
+**Answers:**
 1. ~47.9%
 2. 1 ORF starting at position 0
 3. Protein: AASSSSSSSSSSSS
@@ -337,17 +325,17 @@ Answers:
 
 You want to clone this gene into a plasmid:
 
-gene_to_clone
+```fasta
+>gene_to_clone
 ATGGCCGATTAA
+```
 
-
-
-Tasks:
+**Tasks:**
 1. Find suitable restriction sites (that DON'T cut your gene)
 2. Calculate the molecular weight
 3. Design primers with appropriate Tm
 
-Hints:
+**Hints:**
 - Check EcoRI (GAATTC), BamHI (GGATCC)
 - Use Molecular Weight from statistics
 - Aim for Tm 55-60°C
@@ -386,10 +374,12 @@ Export to Multiple Sequence Alignment:
 Export to Python/R Analysis:
 1. Export JSON format
 2. Load in script:
-import json
-with open('results.json') as f:
-data = json.load(f)
-print(data['gc_content'])
+   ```python
+   import json
+   with open('results.json') as f:
+       data = json.load(f)
+   print(data['gc_content'])
+   ```
 
 
 
